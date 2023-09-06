@@ -13,12 +13,14 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
 import Empty from '@/components/empty';
+import { useProModal } from '@/hooks/use-pro-modal';
 
 type Props = {};
 
 function VideoPage({}: Props) {
   const [video, setVideo] = useState<string>();
   const router = useRouter();
+  const proModal = useProModal();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -36,7 +38,9 @@ function VideoPage({}: Props) {
       setVideo(response.data[0]);
       form.reset();
     } catch (error: any) {
-      //TODO: OPEN PRO MODAL
+      if (error?.response?.status === 403) {
+        proModal.onOpen();
+      }
       console.log(error);
     } finally {
       router.refresh();
