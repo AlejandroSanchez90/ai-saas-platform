@@ -5,14 +5,15 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import Sidebar from './sidebar';
 import { useEffect, useState } from 'react';
+import { checkSubscription } from '@/lib/subscription';
 
 type Props = {
   apiLimitCount: number;
+  isPro: boolean;
 };
 
-function MobileSidebar({ apiLimitCount }: Props) {
+function MobileSidebar({ apiLimitCount, isPro }: Props) {
   const [isMounted, setIsMounted] = useState(false);
-
   useEffect(() => {
     setIsMounted(true);
   }, []);
@@ -28,7 +29,7 @@ function MobileSidebar({ apiLimitCount }: Props) {
         </Button>
       </SheetTrigger>
       <SheetContent side={'left'} className='p-0'>
-        <Sidebar apiLimitCount={apiLimitCount} />
+        <Sidebar apiLimitCount={apiLimitCount} isPro={isPro} />
       </SheetContent>
     </Sheet>
   );
