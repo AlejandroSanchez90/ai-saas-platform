@@ -14,6 +14,7 @@ import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
 import Empty from '@/components/empty';
 import { useProModal } from '@/hooks/use-pro-modal';
+import { toast } from 'react-hot-toast';
 
 type Props = {};
 
@@ -40,6 +41,8 @@ function VideoPage({}: Props) {
     } catch (error: any) {
       if (error?.response?.status === 403) {
         proModal.onOpen();
+      } else {
+        toast.error('Something went wrong');
       }
       console.log(error);
     } finally {
