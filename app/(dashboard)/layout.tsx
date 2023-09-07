@@ -2,7 +2,6 @@ import Navbar from '@/components/navbar';
 import Sidebar from '@/components/sidebar';
 import { getApiLimitCount } from '@/lib/api-limit';
 import { checkSubscription } from '@/lib/subscription';
-import React from 'react';
 
 type Props = {
   children: React.ReactNode;

@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Heading from '@/components/heading';
 import { Video as Icon } from 'lucide-react';
 import Loader from '@/components/loader';

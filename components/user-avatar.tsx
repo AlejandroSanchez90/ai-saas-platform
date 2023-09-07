@@ -1,5 +1,4 @@
 import { useUser } from '@clerk/nextjs';
-import React from 'react';
 import { AvatarImage, Avatar, AvatarFallback } from '@/components/ui/avatar';
 
 type Props = {};
