@@ -67,7 +67,13 @@ function ProModal({}: Props) {
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
-          <Button onClick={onSubscribe} variant='premium' size='lg' className='w-full'>
+          <Button
+            disabled={isLoading}
+            onClick={onSubscribe}
+            variant='premium'
+            size='lg'
+            className='w-full'
+          >
             Upgrade <Zap className='w-4 h-4 ml-2 fill-white' />
           </Button>
         </DialogFooter>
